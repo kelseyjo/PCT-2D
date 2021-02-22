@@ -163,12 +163,12 @@ public class Character_Controller_2D : MonoBehaviour
 			// And then smoothing it out and applying it to the character
 			if(is_grounded)
 			{
-				Debug.Log("reg move");
+				//Debug.Log("reg move");
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 			}
 			else if(!is_grounded && (!is_wall_sliding && (move !=0)))
 			{
-				Debug.Log("air movement");
+				//Debug.Log("air movement");
 				m_Rigidbody2D.AddForce(new Vector2(air_move_speed * move, 0));
 				if(Mathf.Abs(m_Rigidbody2D.velocity.x) > move_speed)
 				{
@@ -194,7 +194,7 @@ public class Character_Controller_2D : MonoBehaviour
 			// Add a vertical force to the player.
 			is_grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-			Debug.Log("jumping (grounded & jump)");
+			//Debug.Log("jumping (grounded & jump)");
 		}
 	}
 
@@ -212,7 +212,7 @@ public class Character_Controller_2D : MonoBehaviour
 		//wall slide
 		if(is_wall_sliding)
 		{
-			Debug.Log("wall sliding");
+			//Debug.Log("wall sliding");
 			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, wall_slide_speed);
 		}
 	}
@@ -222,9 +222,9 @@ public class Character_Controller_2D : MonoBehaviour
 		if((is_wall_sliding || (is_touching_wall && !is_grounded)) && m_jump)
 		{
 			//we can wall jump
-			Debug.Log("is wall sliding:  " + is_wall_sliding);
-			Debug.Log("is touching wall :  " + is_touching_wall);
-			Debug.Log("m_jump:  " + m_jump);
+			//Debug.Log("is wall sliding:  " + is_wall_sliding);
+			//Debug.Log("is touching wall :  " + is_touching_wall);
+		    //Debug.Log("m_jump:  " + m_jump);
 			m_Rigidbody2D.AddForce(new Vector2(wall_jump_force * wall_jump_direction * wall_jump_angle.x, wall_jump_force * wall_jump_angle.y), ForceMode2D.Impulse);
 			m_jump = false;
 		}
