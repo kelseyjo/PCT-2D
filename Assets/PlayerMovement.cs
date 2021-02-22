@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Character_Controller_2D controller;
     float horizontal_move = 0;
     bool jump = false;
-    public float run_speed = 40;
+    public float run_speed = 30f;
     // Start is called before the first frame update
     void Start()
     {
