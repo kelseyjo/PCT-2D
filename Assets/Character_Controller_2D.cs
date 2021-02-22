@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityStandardAssets.CrossPlatformInput;
 // DISCLAIMER: This script is from a Brackey's Youtube Tutorial. 
 public class Character_Controller_2D : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class Character_Controller_2D : MonoBehaviour
 	[SerializeField] Vector2 wall_check_size;
 	private bool is_touching_wall;
 	private bool is_wall_sliding;
+
+	//from other script
+	[Header("For Character Controller")]
+	public Character_Controller_2D controller;
+    float horizontal_move = 0;
+    bool jump = false;
+    public float run_speed = 30f;
 
 	[Header("For Wall Jumping")]
 	[SerializeField] float wall_jump_force = 18f;
@@ -67,12 +75,20 @@ public class Character_Controller_2D : MonoBehaviour
 
 	private void Update()
 	{
-		
+		//get input from player
+        horizontal_move = CrossPlatformInputManager.GetAxis("Horizontal") * run_speed;
+        if(CrossPlatformInputManager.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
 	}
 
 
 	private void FixedUpdate() //movement, jumping, animation control
 	{
+		//move player (apply input to player)
+        controller.Move((horizontal_move * Time.fixedDeltaTime), false, jump); //character controller script method
+        jump = false;
 		bool wasGrounded = is_grounded;
 		is_grounded = false;
 

@@ -498,7 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b141f5da70e4407d9600d2c52199fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 436832692}
   m_JumpForce: 600
   m_CrouchSpeed: 0.4
   m_MovementSmoothing: 0.05
@@ -516,6 +515,8 @@ MonoBehaviour:
     m_Bits: 512
   wall_check: {fileID: 424032491}
   wall_check_size: {x: 0.05, y: 1}
+  controller: {fileID: 436832692}
+  run_speed: 30
   wall_jump_force: 12
   wall_jump_direction: -1
   wall_jump_angle: {x: 1, y: 3}
@@ -597,11 +598,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436832689}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 035787bd9c26e42b5be980d0fb5bd18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 436832692}
+  run_speed: 30
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
